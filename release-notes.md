@@ -64,10 +64,25 @@ Rather than producing redundant, identical images for each SKU, this release pro
 ### MediaTek MT7986A Filogic 830
 * **JIDU6101:**
   * `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-squashfs-sysupgrade.bin`
-  * `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-initramfs-recovery.itb`
+  * `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-initramfs-kernel.bin`
 * **JIDU6J01:**
   * `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-squashfs-sysupgrade.bin`
-  * `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-initramfs-recovery.itb`
+  * `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-initramfs-kernel.bin`
+
+---
+
+## Verification Checksums (SHA-256)
+
+```text
+e492418ebd6223e9f3571186049785ed68aa2b400850c889c092b9b702886216  openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-initramfs-kernel.bin
+09b37d1454b6785d6f93722a89d6586ad95705dd2bdd0264b19e5fad1de90795  openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-squashfs-sysupgrade.bin
+9f057327cd98473e9cf5249697359ca034d17a2434e5817ba04e76182960f5df  openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-initramfs-kernel.bin
+23e691abfc35e24d46fb19e265389c30c09cb8a89c9dfc78bb138a0d8a8829ba  openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-squashfs-sysupgrade.bin
+810a87092e304f228ac32647d8897b976b3a59d41420b609de475019241b3000  openwrt-qualcommbe-ipq95xx-jiorouter_ax6000-jidu6j11-initramfs-factory.ubi
+e527b15a715fb85c808effdd4ec51b43ab7ed1e5550e54746f8085f9f962f6cb  openwrt-qualcommbe-ipq95xx-jiorouter_ax6000-jidu6j11-initramfs-uImage.itb
+d4a82f06ecd06dccaea2be107c21025515d36d8738b3940d3c9c62edcf45a562  openwrt-qualcommbe-ipq95xx-jiorouter_ax6000-jidu6j11-squashfs-factory.ubi
+ec128f3309141c9979c1d7a98b3642e9a56aeb3335669c86bc050ef272939799  openwrt-qualcommbe-ipq95xx-jiorouter_ax6000-jidu6j11-squashfs-sysupgrade.bin
+```
 
 ---
 
