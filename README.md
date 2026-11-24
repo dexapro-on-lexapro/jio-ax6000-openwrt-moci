@@ -15,43 +15,7 @@ This build set replaces OpenWrt's traditional LuCI web interface with **MoCI** (
 * **Minimal Storage & Memory Footprint:** The entire MoCI package occupies under 80 KB on flash, freeing valuable RAM and storage for routing workloads, containerization, and packet buffers.
 * **Seamless Web Root Redirection:** Requests to the router's root web address (`http://192.168.1.1/`) are seamlessly redirected to `/moci/` via an optimized HTTP refresh stub in `/www/index.html`.
 
----
 
-## Qualcomm IPQ9554 Non-Redundant Single-Target Architecture
-
-### Single Image Set for all JIDU6J11 Series Routers
-The JioRouter Qualcomm hardware lineup includes several marketing models and product SKUs:
-* **JIDU6111**
-* **JIDU6411**
-* **JIDU6611**
-* **JIDU6711**
-* **JIDU6811**
-* **JIDU6911**
-
-**Crucial Hardware Note:** Every router in the JIDU6J11 series shares 100% identical underlying hardware:
-* **SoC:** Qualcomm IPQ9554 (Quad-core ARM Cortex-A53 @ 1.5 GHz)
-* **WLAN Baseband / Radio:** Qualcomm IPQ9574 integrated 2.4 GHz 4x4 802.11ax radio (`wifi0`) and QCN6274 5 GHz 4x4 802.11ax radio (`wifi1`)
-* **Memory:** 512 MiB DDR3L RAM
-* **Storage / Flash:** 128 MiB SPI-NAND flash with identical partition tables and UBI volume layouts
-* **Ethernet PHY:** Multi-gigabit 2.5 GbE WAN and Gigabit LAN switch topology
-* **RF Calibration:** Identical factory calibration structures across all 6J11 revisions
-
-### Multi-Compatible Device Tree & FIT Metadata
-To avoid producing redundant, duplicate images for each individual SKU, this firmware provides a **single, unified target image set**: `jiorouter_ax6000-jidu6j11`.
-
-The unified Device Tree and OpenWrt image definition declare multi-compatibility across the entire family:
-```dts
-compatible = "jiorouter,ax6000-jidu6j11",
-             "jiorouter,ax6000-jidu6j11-6111",
-             "jiorouter,ax6000-jidu6j11-6411",
-             "jiorouter,ax6000-jidu6j11-6611",
-             "jiorouter,ax6000-jidu6j11-6811",
-             "jiorouter,ax6000-jidu6j11-6911",
-             "qcom,ipq9574";
-```
-In addition, the build system embeds alternative device aliases (`DEVICE_ALT0` through `DEVICE_ALT4`) into the FIT sysupgrade image metadata. Whether your device was identified as 6111, 6411, 6611, 6811, or 6911, the unified firmware flashes and performs sysupgrade cleanly without requiring `--force`.
-
----
 
 ## Technical Highlights & Included Components
 
@@ -109,74 +73,7 @@ An automated background health monitor (`/usr/bin/led_internet_monitor.sh` manag
 | **MediaTek Filogic 830** | **JioRouter AX6000 JIDU6101** | MediaTek MT7986A<br>(4x A53 @ 2.0 GHz) | 128MB SPI-NAND<br>(Stock dual rootfs UBI) | `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-squashfs-sysupgrade.bin`<br>`openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-initramfs-recovery.itb` |
 | **MediaTek Filogic 830** | **JioRouter AX6000 JIDU6J01** | MediaTek MT7986A<br>(4x A53 @ 2.0 GHz) | 128MB SPI-NAND<br>(Stock dual rootfs UBI) | `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-squashfs-sysupgrade.bin`<br>`openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-initramfs-recovery.itb` |
 
----
 
-## Flashing Instructions
-
-### Method 1: Sysupgrade (Upgrading from an Existing OpenWrt Installation)
-
-If your JioRouter is already running OpenWrt:
-
-1. Transfer the appropriate sysupgrade `.bin` image to the router's `/tmp` directory:
-   ```bash
-   scp openwrt-*-sysupgrade.bin root@192.168.1.1:/tmp/
-   ```
-
-2. Flash the firmware via SSH:
-   ```bash
-   sysupgrade -v -n /tmp/openwrt-*-sysupgrade.bin
-   ```
-
-3. Wait 2-3 minutes for the router to flash and reboot.
-4. Navigate to `http://192.168.1.1/` in your browser. The page will redirect automatically to MoCI at `http://192.168.1.1/moci/`.
-
----
-
-### Method 2: Zero-UART Flashing from Stock Jio Firmware
-
-Both Qualcomm and MediaTek variants can be flashed without opening the casing or soldering UART wires, utilizing stock firmware root shell injection.
-
-#### Qualcomm IPQ9554 (JIDU6J11 Series: 6111, 6411, 6611, 6711, 6811, 6911)
-1. Gain root SSH shell on the stock Jio firmware.
-2. Neutralize the background telemetry and watchdog daemons:
-   ```bash
-   killall -9 watchdog watchdog_agent 2>/dev/null || true
-   ```
-3. Transfer the unified initramfs factory UBI (`openwrt-qualcommbe-ipq95xx-jiorouter_ax6000-jidu6j11-initramfs-factory.ubi`) to `/tmp/factory.ubi`.
-4. Flash the initramfs kernel to the secondary rootfs partition (typically `/dev/mtd25` or `rootfs_1`):
-   ```bash
-   ubiformat /dev/mtd25 -y -f /tmp/factory.ubi
-   ```
-5. Set the U-Boot boot counter to boot from the newly flashed partition and reboot:
-   ```bash
-   fw_setenv bootcount 0
-   fw_setenv upgrade_available 0
-   reboot
-   ```
-6. The router will boot into OpenWrt initramfs recovery at `192.168.1.1`.
-7. Transfer the permanent unified sysupgrade image (`openwrt-qualcommbe-ipq95xx-jiorouter_ax6000-jidu6j11-squashfs-sysupgrade.bin`) to `/tmp/` and execute `sysupgrade -v -n /tmp/openwrt-*.bin`.
-
-#### MediaTek MT7986A (JIDU6101 & JIDU6J01)
-1. Gain root SSH access on stock firmware.
-2. Transfer the matching recovery FIT image (`openwrt-mediatek-filogic-jiorouter_ax6000-*-initramfs-recovery.itb`) to `/tmp/recovery.itb`.
-3. Flash to the inactive rootfs MTD volume using `mtd write`.
-4. Update U-Boot environment variables and reboot into OpenWrt RAM disk.
-5. Complete permanent installation by running `sysupgrade -v -n openwrt-mediatek-filogic-*-squashfs-sysupgrade.bin`.
-
----
-
-## Accessing MoCI
-
-Once booted:
-* **Default IP Address:** `192.168.1.1`
-* **Default Subnet:** `192.168.1.0/24`
-* **Default Web Interface:** `http://192.168.1.1/` (Redirects to `http://192.168.1.1/moci/`)
-* **Default Credentials:**
-  * **Username:** `root`
-  * **Password:** None (Set your administrative password upon first login)
-* **SSH Access:** `ssh root@192.168.1.1` (Port 22, Dropbear)
-
----
 
 ## Repository Structure
 
