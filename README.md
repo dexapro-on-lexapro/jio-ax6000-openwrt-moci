@@ -67,11 +67,15 @@ An automated background health monitor (`/usr/bin/led_internet_monitor.sh` manag
 
 ## Supported Models & Image Sizing
 
+Pre-compiled images are available on GitHub Releases:
+* **[v2026.11.26-moci Release (Latest)](https://github.com/dexapro-on-lexapro/jio-ax6000-openwrt-moci/releases/tag/v2026.11.26-moci)** - Cross-maintainer `SUPPORTED_DEVICES` & sysupgrade `CONTROL` aliases across all J11 (`6111/6411/6611/6711/6811/6911`) and J01 (`6201/6401/6601/6701/6801`) variants, unsigned `fwtool` metadata (`# CONFIG_SIGN_FIRMWARE is not set`), and fixed Qualcomm base-files scripts (`02_network`, `11-ath11k-caldata`, `platform.sh`, `uboot-envtools`).
+* **[v2026.11.24-moci Release](https://github.com/dexapro-on-lexapro/jio-ax6000-openwrt-moci/releases/tag/v2026.11.24-moci)** - Initial MoCI release with unified JIDU6J11 target.
+
 | Platform Architecture | Hardware Model | SoC / CPU | Flash Layout | Required Firmware Image |
 | :--- | :--- | :--- | :--- | :--- |
 | **Qualcomm Networking Pro 400** | **JioRouter AX6000 JIDU6J11 Series**<br>*(JIDU6111, JIDU6411, JIDU6611, JIDU6711, JIDU6811, JIDU6911)* | Qualcomm IPQ9554<br>(4x A53 @ 1.5 GHz) | 128MB SPI-NAND<br>(Stock dual rootfs UBI) | `openwrt-qualcommbe-ipq95xx-jiorouter_ax6000-jidu6j11-squashfs-sysupgrade.bin`<br>`openwrt-qualcommbe-ipq95xx-jiorouter_ax6000-jidu6j11-initramfs-factory.ubi` |
-| **MediaTek Filogic 830** | **JioRouter AX6000 JIDU6101** | MediaTek MT7986A<br>(4x A53 @ 2.0 GHz) | 128MB SPI-NAND<br>(Stock dual rootfs UBI) | `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-squashfs-sysupgrade.bin`<br>`openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-initramfs-recovery.itb` |
-| **MediaTek Filogic 830** | **JioRouter AX6000 JIDU6J01** | MediaTek MT7986A<br>(4x A53 @ 2.0 GHz) | 128MB SPI-NAND<br>(Stock dual rootfs UBI) | `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-squashfs-sysupgrade.bin`<br>`openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-initramfs-recovery.itb` |
+| **MediaTek Filogic 830** | **JioRouter AX6000 JIDU6101** | MediaTek MT7986A<br>(4x A53 @ 2.0 GHz) | 128MB SPI-NAND<br>(Stock dual rootfs UBI) | `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-squashfs-sysupgrade.bin`<br>`openwrt-mediatek-filogic-jiorouter_ax6000-jidu6101-initramfs-kernel.bin` |
+| **MediaTek Filogic 830** | **JioRouter AX6000 JIDU6J01**<br>*(6201, 6401, 6601, 6701, 6801)* | MediaTek MT7986A<br>(4x A53 @ 2.0 GHz) | 128MB SPI-NAND<br>(Stock dual rootfs UBI) | `openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-squashfs-sysupgrade.bin`<br>`openwrt-mediatek-filogic-jiorouter_ax6000-jidu6j01-initramfs-kernel.bin` |
 
 
 

@@ -1,7 +1,7 @@
 From 8886153046cf3cc727e657a8aaaf24f92c977bd9 Mon Sep 17 00:00:00 2001
 From: Sandeep Sondagar <sandeepsondagar@gmail.com>
 Date: Fri, 7 Aug 2026 23:48:31 +0530
-Subject: [PATCH 1/9] qualcommbe: add JioRouter AX6000 (JIDU6J11 series)
+Subject: [PATCH 01/10] qualcommbe: add JioRouter AX6000 (JIDU6J11 series)
  support
 
 This adds OpenWrt support for the JioRouter AX6000 (JIDU6J11 series)
@@ -2492,7 +2492,7 @@ index 0000000000..c89867c249
 From a9171e884754c98d2342c5cab1cbc779e2fbd987 Mon Sep 17 00:00:00 2001
 From: Antigravity <antigravity@build>
 Date: Thu, 29 Oct 2026 22:14:15 +0530
-Subject: [PATCH 2/9] mediatek: filogic: add JioRouter AX6000 JIDU6801 to
+Subject: [PATCH 02/10] mediatek: filogic: add JioRouter AX6000 JIDU6801 to
  JIDU6J01 image
 
 ---
@@ -2520,8 +2520,8 @@ index 112b1deced..58594adce8 100644
 From 7625beb0f49e6b71f33fe12755458db7873a9d8a Mon Sep 17 00:00:00 2001
 From: Dwaipayan <dwaipa@hamsa>
 Date: Fri, 30 Oct 2026 03:24:28 +0530
-Subject: [PATCH 3/9] qualcommbe: fix ipq9554-jiorouter-ax6000-jidu6j11 DTS for
- kernel 6.18 upstream compatibility
+Subject: [PATCH 03/10] qualcommbe: fix ipq9554-jiorouter-ax6000-jidu6j11 DTS
+ for kernel 6.18 upstream compatibility
 
 ---
  .../ipq9554-jiorouter-ax6000-jidu6j11.dtsi    | 45 +++++--------------
@@ -2623,7 +2623,7 @@ index f4dea36660..9d713575a2 100644
 From 1d4fe4aa8e741953a30fc5fd48bf07d124d3e94f Mon Sep 17 00:00:00 2001
 From: Dwaipayan <dwaipayandex@users.noreply.github.com>
 Date: Fri, 30 Oct 2026 21:16:01 +0530
-Subject: [PATCH 4/9] uboot-tools: make fit_check_sign install conditional on
+Subject: [PATCH 04/10] uboot-tools: make fit_check_sign install conditional on
  file existence
 
 ---
@@ -2650,7 +2650,7 @@ index 1ff8998281..ecee0a60dc 100644
 From 83315a4890445e7490537f2ab6510297923e3c4a Mon Sep 17 00:00:00 2001
 From: Dwaipayan <dwaipayandex@users.noreply.github.com>
 Date: Fri, 30 Oct 2026 21:16:03 +0530
-Subject: [PATCH 5/9] ath11k: add upstream rx ring buffer kmalloc patch to
+Subject: [PATCH 05/10] ath11k: add upstream rx ring buffer kmalloc patch to
  prevent memory leak
 
 ---
@@ -2756,7 +2756,7 @@ index 0000000000..df7b30493a
 From 04cdc1b2f2b18f30daf9c4fd565278fc1d4be2bc Mon Sep 17 00:00:00 2001
 From: Dwaipayan <dwaipayandex@users.noreply.github.com>
 Date: Sat, 31 Oct 2026 23:46:54 +0530
-Subject: [PATCH 6/9] qualcommbe: fix IPQ9554 2.4GHz Wi-Fi PIL remoteproc,
+Subject: [PATCH 06/10] qualcommbe: fix IPQ9554 2.4GHz Wi-Fi PIL remoteproc,
  default enable Wi-Fi, add tailscale, watchcat, btop
 
 ---
@@ -2813,8 +2813,8 @@ index faf468d36d..14f0e4eaee 100644
 From fd4266f55bb3416e4172409f70d8b1bae0fd1258 Mon Sep 17 00:00:00 2001
 From: Dwaipayan <dwaipayandex@users.noreply.github.com>
 Date: Sun, 1 Nov 2026 00:42:45 +0530
-Subject: [PATCH 7/9] qualcommbe: add IPQ9574 board-2.bin and firmware symlinks
- for internal 2.4GHz Wi-Fi
+Subject: [PATCH 07/10] qualcommbe: add IPQ9574 board-2.bin and firmware
+ symlinks for internal 2.4GHz Wi-Fi
 
 ---
  .../firmware/ath11k/IPQ9574/hw1.0/board-2.bin  | Bin 0 -> 786936 bytes
@@ -4058,8 +4058,8 @@ index 0000000000..c621f50077
 From e032c9e26a76fbe9fd529c198c1e674713e9fe7b Mon Sep 17 00:00:00 2001
 From: Dwaipayan <dwaipayandex@users.noreply.github.com>
 Date: Tue, 24 Nov 2026 18:12:52 +0530
-Subject: [PATCH 8/9] qualcommbe: fix 2.4GHz q6_region WCSS PIL reservation and
- update ath11k patches (954, 955, 959, 999)
+Subject: [PATCH 08/10] qualcommbe: fix 2.4GHz q6_region WCSS PIL reservation
+ and update ath11k patches (954, 955, 959, 999)
 
 ---
  ...make-external-IRQ-control-idempotent.patch |  74 ++++++++
@@ -4596,7 +4596,7 @@ index 9d713575a2..93471b4cb2 100644
 From 92a4d4c170da988a641531ffc0dc0f7f515eb5e5 Mon Sep 17 00:00:00 2001
 From: Dwaipayan <dwaipayandex@users.noreply.github.com>
 Date: Tue, 24 Nov 2026 19:59:18 +0530
-Subject: [PATCH 9/9] qualcommbe: unify JIDU6J11 series into single
+Subject: [PATCH 09/10] qualcommbe: unify JIDU6J11 series into single
  non-redundant device target
 
 ---
@@ -4707,6 +4707,612 @@ index 14f0e4eaee..a84afde678 100644
 -endef
 -TARGET_DEVICES += jiorouter_ax6000-jidu6j11-6911
 +TARGET_DEVICES += jiorouter_ax6000-jidu6j11
+-- 
+2.17.1
+
+
+From 8951bba4497c34e2ec1b06b7f8d17107f23a3f2f Mon Sep 17 00:00:00 2001
+From: Dwaipayan <dwaipayandex@users.noreply.github.com>
+Date: Thu, 26 Nov 2026 20:23:45 +0530
+Subject: [PATCH 10/10] jiorouter: unify JIDU6J11/6J01 sysupgrade aliases and
+ fix base-files SKU matching
+
+---
+ include/image-commands.mk                     |  1 +
+ include/image.mk                              |  3 +-
+ .../uboot-envtools/files/mediatek_filogic     |  7 +++-
+ .../uboot-envtools/files/qualcommbe_ipq95xx   | 13 ++++---
+ scripts/sysupgrade-tar.sh                     | 25 ++++++++++++-
+ .../dts/mt7986a-jiorouter-ax6000-jidu6j01.dts |  8 ++++-
+ .../filogic/base-files/etc/board.d/02_network |  7 +++-
+ .../etc/hotplug.d/ieee80211/11_fix_wifi_mac   |  7 +++-
+ .../base-files/lib/upgrade/platform.sh        | 32 +++++++++++++++--
+ target/linux/mediatek/image/filogic.mk        | 12 +++++++
+ ...ipq9554-jiorouter-ax6000-jidu6j11-6111.dts | 18 ----------
+ ...ipq9554-jiorouter-ax6000-jidu6j11-6411.dts | 18 ----------
+ ...ipq9554-jiorouter-ax6000-jidu6j11-6611.dts | 18 ----------
+ ...ipq9554-jiorouter-ax6000-jidu6j11-6811.dts | 18 ----------
+ ...ipq9554-jiorouter-ax6000-jidu6j11-6911.dts | 18 ----------
+ .../dts/ipq9554-jiorouter-ax6000-jidu6j11.dts |  7 ++++
+ target/linux/qualcommbe/image/ipq95xx.mk      | 34 ++++++++++++++++--
+ .../ipq95xx/base-files/etc/board.d/02_network | 13 ++++---
+ .../etc/hotplug.d/firmware/11-ath11k-caldata  | 26 ++++++++------
+ .../base-files/lib/upgrade/platform.sh        | 35 +++++++++++++------
+ 20 files changed, 190 insertions(+), 130 deletions(-)
+ delete mode 100644 target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6111.dts
+ delete mode 100644 target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6411.dts
+ delete mode 100644 target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6611.dts
+ delete mode 100644 target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6811.dts
+ delete mode 100644 target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6911.dts
+
+diff --git a/include/image-commands.mk b/include/image-commands.mk
+index 11107dab89..497f82d6d5 100644
+--- a/include/image-commands.mk
++++ b/include/image-commands.mk
+@@ -755,6 +755,7 @@ define Build/sysupgrade-tar
+ 		--kernel $(call param_get_default,kernel,$(1),$(IMAGE_KERNEL)) \
+ 		--rootfs $(call param_get_default,rootfs,$(1),$(IMAGE_ROOTFS)) \
+ 		$(if $(dtb),--dtb $(dtb)) \
++		$(if $(strip $(SYSUPGRADE_BOARD_ALIASES)),--aliases "$(strip $(SYSUPGRADE_BOARD_ALIASES))") \
+ 		$@
+ endef
+ 
+diff --git a/include/image.mk b/include/image.mk
+index 88db53e97f..0b5bd5bd8a 100644
+--- a/include/image.mk
++++ b/include/image.mk
+@@ -521,6 +521,7 @@ define Device/Init
+   DEVICE_COMPAT_VERSION := 1.0
+   DEVICE_COMPAT_MESSAGE :=
+   SUPPORTED_DEVICES := $(subst _,$(comma),$(1))
++  SYSUPGRADE_BOARD_ALIASES :=
+   IMAGE_METADATA :=
+ 
+   ##@ Filesystems to build images for.
+@@ -541,7 +542,7 @@ DEFAULT_DEVICE_VARS := \
+   DEVICE_DTCO_FLAGS DEVICE_DTS DEVICE_DTS_CONFIG DEVICE_DTS_DELIMITER \
+   DEVICE_DTS_DIR DEVICE_DTS_OVERLAY DEVICE_DTS_LOADADDR \
+   DEVICE_FDT_NUM DEVICE_IMG_PREFIX SOC BOARD_NAME UIMAGE_MAGIC UIMAGE_NAME \
+-  UIMAGE_TIME SUPPORTED_DEVICES IMAGE_METADATA KERNEL_ENTRY KERNEL_LOADADDR \
++  UIMAGE_TIME SUPPORTED_DEVICES SYSUPGRADE_BOARD_ALIASES IMAGE_METADATA KERNEL_ENTRY KERNEL_LOADADDR \
+   UBOOT_PATH IMAGE_SIZE NAND_SIZE \
+   FACTORY_IMG_NAME FACTORY_SIZE \
+   DEVICE_PACKAGES DEVICE_COMPAT_VERSION DEVICE_COMPAT_MESSAGE \
+diff --git a/package/boot/uboot-tools/uboot-envtools/files/mediatek_filogic b/package/boot/uboot-tools/uboot-envtools/files/mediatek_filogic
+index 5fe5752eba..95a648070c 100644
+--- a/package/boot/uboot-tools/uboot-envtools/files/mediatek_filogic
++++ b/package/boot/uboot-tools/uboot-envtools/files/mediatek_filogic
+@@ -153,7 +153,12 @@ glinet,gl-mt3000)
+ 	ubootenv_add_uci_config "/dev/mtd1" "0x0" "0x80000" "0x20000"
+ 	;;
+ jiorouter,ax6000-jidu6101|\
+-jiorouter,ax6000-jidu6j01)
++jiorouter,ax6000-jidu6j01|\
++jiorouter,ax6000-jidu6201|\
++jiorouter,ax6000-jidu6401|\
++jiorouter,ax6000-jidu6601|\
++jiorouter,ax6000-jidu6701|\
++jiorouter,ax6000-jidu6801)
+ 	. /lib/upgrade/nand.sh
+ 	envubi=$(nand_find_ubi ubi)
+ 	envdev=/dev/$(nand_find_volume "$envubi" u-boot-env)
+diff --git a/package/boot/uboot-tools/uboot-envtools/files/qualcommbe_ipq95xx b/package/boot/uboot-tools/uboot-envtools/files/qualcommbe_ipq95xx
+index 8dcc13ff6a..ccd5e3e373 100644
+--- a/package/boot/uboot-tools/uboot-envtools/files/qualcommbe_ipq95xx
++++ b/package/boot/uboot-tools/uboot-envtools/files/qualcommbe_ipq95xx
+@@ -10,11 +10,14 @@ askey,sbe1v1k)
+ linksys,ln6001)
+ 	ubootenv_add_mmc "u_env" "" "0x0" "0x40000" "0x40000"
+ 	;;
+-jiorouter,ax6000-jidu6j11-6111|\
+-jiorouter,ax6000-jidu6j11-6411|\
+-jiorouter,ax6000-jidu6j11-6611|\
+-jiorouter,ax6000-jidu6j11-6811|\
+-jiorouter,ax6000-jidu6j11-6911)
++jiorouter,ax6000-jidu6j11|\
++jiorouter,ax6000-jidu6111|\
++jiorouter,ax6000-jidu6411|\
++jiorouter,ax6000-jidu6611|\
++jiorouter,ax6000-jidu6711|\
++jiorouter,ax6000-jidu6811|\
++jiorouter,ax6000-jidu6911|\
++jiorouter,ax6000-jidu6j11-*)
+ 	ubootenv_add_mtd "0:APPSBLENV" "0x0" "0x40000" "0x20000"
+ 	;;
+ esac
+diff --git a/scripts/sysupgrade-tar.sh b/scripts/sysupgrade-tar.sh
+index c101dbf00b..4c17778dc3 100755
+--- a/scripts/sysupgrade-tar.sh
++++ b/scripts/sysupgrade-tar.sh
+@@ -6,6 +6,7 @@ board=""
+ kernel=""
+ rootfs=""
+ dtb=""
++aliases=""
+ outfile=""
+ err=""
+ 
+@@ -35,6 +36,12 @@ while [ "$1" ]; do
+ 		shift
+ 		continue
+ 		;;
++	"--aliases")
++		aliases="$2"
++		shift
++		shift
++		continue
++		;;
+ 	*)
+ 		if [ ! "$outfile" ]; then
+ 			outfile=$1
+@@ -80,7 +87,23 @@ if [ -n "$SOURCE_DATE_EPOCH" ]; then
+ 	mtime="--mtime=@${SOURCE_DATE_EPOCH}"
+ fi
+ 
+-(cd "$tmpdir"; tar --sort=name --owner=0 --group=0 --numeric-owner -cvf sysupgrade.tar sysupgrade-${board} ${mtime})
++tar_entries="sysupgrade-${board}"
++tar_opts=""
++if [ -n "$aliases" ]; then
++	tar_opts="--no-recursion"
++	for entry in "${tmpdir}/sysupgrade-${board}"/*; do
++		[ -e "$entry" ] && tar_entries="${tar_entries} sysupgrade-${board}/$(basename "$entry")"
++	done
++	for alias in $aliases; do
++		alias="$(printf '%s' "$alias" | tr ',' '_')"
++		[ -n "$alias" ] && [ "$alias" != "$board" ] || continue
++		mkdir -p "${tmpdir}/sysupgrade-${alias}"
++		echo "BOARD=${alias}" > "${tmpdir}/sysupgrade-${alias}/CONTROL"
++		tar_entries="${tar_entries} sysupgrade-${alias}/CONTROL"
++	done
++fi
++
++(cd "$tmpdir"; tar --sort=name --owner=0 --group=0 --numeric-owner ${tar_opts} -cvf sysupgrade.tar ${tar_entries} ${mtime})
+ err="$?"
+ if [ -e "$tmpdir/sysupgrade.tar" ]; then
+ 	cp "$tmpdir/sysupgrade.tar" "$outfile"
+diff --git a/target/linux/mediatek/dts/mt7986a-jiorouter-ax6000-jidu6j01.dts b/target/linux/mediatek/dts/mt7986a-jiorouter-ax6000-jidu6j01.dts
+index 7e53a77f68..0ff82c449a 100644
+--- a/target/linux/mediatek/dts/mt7986a-jiorouter-ax6000-jidu6j01.dts
++++ b/target/linux/mediatek/dts/mt7986a-jiorouter-ax6000-jidu6j01.dts
+@@ -4,7 +4,13 @@
+ #include "mt7986a-jiorouter-common.dtsi"
+ 
+ / {
+-	compatible = "jiorouter,ax6000-jidu6j01", "mediatek,mt7986a";
++	compatible = "jiorouter,ax6000-jidu6j01",
++		     "jiorouter,ax6000-jidu6201",
++		     "jiorouter,ax6000-jidu6401",
++		     "jiorouter,ax6000-jidu6601",
++		     "jiorouter,ax6000-jidu6701",
++		     "jiorouter,ax6000-jidu6801",
++		     "mediatek,mt7986a";
+ 	model = "JioRouter AX6000 JIDU6J01";
+ };
+ 
+diff --git a/target/linux/mediatek/filogic/base-files/etc/board.d/02_network b/target/linux/mediatek/filogic/base-files/etc/board.d/02_network
+index bc26dc42ae..a99777f46e 100644
+--- a/target/linux/mediatek/filogic/base-files/etc/board.d/02_network
++++ b/target/linux/mediatek/filogic/base-files/etc/board.d/02_network
+@@ -326,7 +326,12 @@ mediatek_setup_macs()
+ 		wan_mac=$label_mac
+ 		lan_mac=$(macaddr_add "$label_mac" 1)
+ 		;;
+-	jiorouter,ax6000-jidu6j01)
++	jiorouter,ax6000-jidu6j01|\
++	jiorouter,ax6000-jidu6201|\
++	jiorouter,ax6000-jidu6401|\
++	jiorouter,ax6000-jidu6601|\
++	jiorouter,ax6000-jidu6701|\
++	jiorouter,ax6000-jidu6801)
+ 		local mfg_dev
+ 		local model
+ 		mfg_dev=$(find_mtd_chardev "MFG")
+diff --git a/target/linux/mediatek/filogic/base-files/etc/hotplug.d/ieee80211/11_fix_wifi_mac b/target/linux/mediatek/filogic/base-files/etc/hotplug.d/ieee80211/11_fix_wifi_mac
+index a25bd1705e..4883e836d8 100644
+--- a/target/linux/mediatek/filogic/base-files/etc/hotplug.d/ieee80211/11_fix_wifi_mac
++++ b/target/linux/mediatek/filogic/base-files/etc/hotplug.d/ieee80211/11_fix_wifi_mac
+@@ -180,7 +180,12 @@ case "$board" in
+ 		[ "$PHYNBR" = "0" ] && macaddr_add $addr 2 > /sys${DEVPATH}/macaddress
+ 		[ "$PHYNBR" = "1" ] && macaddr_add $addr 3 > /sys${DEVPATH}/macaddress
+ 		;;
+-	jiorouter,ax6000-jidu6j01)
++	jiorouter,ax6000-jidu6j01|\
++	jiorouter,ax6000-jidu6201|\
++	jiorouter,ax6000-jidu6401|\
++	jiorouter,ax6000-jidu6601|\
++	jiorouter,ax6000-jidu6701|\
++	jiorouter,ax6000-jidu6801)
+ 		mfg_dev=$(find_mtd_chardev "MFG")
+ 		[ -z "$mfg_dev" ] && exit 0
+ 		model=$(dd if="$mfg_dev" bs=1024 count=1 2>/dev/null | strings | grep -o -m1 'JIDU[0-9A-Z][0-9A-Z]*')
+diff --git a/target/linux/mediatek/filogic/base-files/lib/upgrade/platform.sh b/target/linux/mediatek/filogic/base-files/lib/upgrade/platform.sh
+index 379ce42c8f..dbd1a35fa3 100644
+--- a/target/linux/mediatek/filogic/base-files/lib/upgrade/platform.sh
++++ b/target/linux/mediatek/filogic/base-files/lib/upgrade/platform.sh
+@@ -307,7 +307,12 @@ platform_do_upgrade() {
+ 	huasifei,wh3000-pro-nand|\
+ 	huasifei,wh3000r-nand|\
+ 	jiorouter,ax6000-jidu6101|\
+-	jiorouter,ax6000-jidu6j01)
++	jiorouter,ax6000-jidu6j01|\
++	jiorouter,ax6000-jidu6201|\
++	jiorouter,ax6000-jidu6401|\
++	jiorouter,ax6000-jidu6601|\
++	jiorouter,ax6000-jidu6701|\
++	jiorouter,ax6000-jidu6801)
+ 		CI_UBIPART="ubi"
+ 		nand_do_upgrade "$1"
+ 		;;
+@@ -493,6 +498,24 @@ platform_check_image() {
+ 
+ 		return 0
+ 		;;
++	jiorouter,ax6000-jidu6j01|\
++	jiorouter,ax6000-jidu6201|\
++	jiorouter,ax6000-jidu6401|\
++	jiorouter,ax6000-jidu6601|\
++	jiorouter,ax6000-jidu6701|\
++	jiorouter,ax6000-jidu6801)
++		if nand_do_platform_check "$board" "$1" 2>/dev/null; then
++			return 0
++		fi
++		local cmd="$(identify_if_gzip "$1")cat"
++		local alias_ctrl="$($cmd < "$1" 2>/dev/null | tar tf - 2>/dev/null | grep -m 1 '^sysupgrade-jiorouter_ax6000-jidu6[24678j]01/CONTROL$')"
++		if [ -n "$alias_ctrl" ]; then
++			nand_verify_tar_file "$1" "$cmd"
++			return $?
++		fi
++		nand_do_platform_check "$board" "$1"
++		return $?
++		;;
+ 	*)
+ 		nand_do_platform_check "$board" "$1"
+ 		return $?
+@@ -580,7 +603,12 @@ platform_pre_upgrade() {
+ 			fw_setenv bootmenu_delay 3
+ 		;;
+ 	jiorouter,ax6000-jidu6101|\
+-	jiorouter,ax6000-jidu6j01)
++	jiorouter,ax6000-jidu6j01|\
++	jiorouter,ax6000-jidu6201|\
++	jiorouter,ax6000-jidu6401|\
++	jiorouter,ax6000-jidu6601|\
++	jiorouter,ax6000-jidu6701|\
++	jiorouter,ax6000-jidu6801)
+ 		jiorouter_initial_setup
+ 		;;
+ 	xiaomi,mi-router-ax3000t|\
+diff --git a/target/linux/mediatek/image/filogic.mk b/target/linux/mediatek/image/filogic.mk
+index 58594adce8..e467adb66a 100644
+--- a/target/linux/mediatek/image/filogic.mk
++++ b/target/linux/mediatek/image/filogic.mk
+@@ -2409,6 +2409,18 @@ define Device/jiorouter_ax6000-jidu6j01
+   DEVICE_ALT4_VENDOR := JioRouter
+   DEVICE_ALT4_MODEL := AX6000
+   DEVICE_ALT4_VARIANT := JIDU6801
++  SUPPORTED_DEVICES += \
++	jiorouter,ax6000-jidu6201 \
++	jiorouter,ax6000-jidu6401 \
++	jiorouter,ax6000-jidu6601 \
++	jiorouter,ax6000-jidu6701 \
++	jiorouter,ax6000-jidu6801
++  SYSUPGRADE_BOARD_ALIASES := \
++	jiorouter_ax6000-jidu6201 \
++	jiorouter_ax6000-jidu6401 \
++	jiorouter_ax6000-jidu6601 \
++	jiorouter_ax6000-jidu6701 \
++	jiorouter_ax6000-jidu6801
+   DEVICE_DTS := mt7986a-jiorouter-ax6000-jidu6j01
+   DEVICE_DTS_DIR := ../dts
+   DEVICE_PACKAGES := kmod-usb3 kmod-mt7915e kmod-mt7986-firmware mt7986-wo-firmware
+diff --git a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6111.dts b/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6111.dts
+deleted file mode 100644
+index 524f23854f..0000000000
+--- a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6111.dts
++++ /dev/null
+@@ -1,18 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+-
+-/dts-v1/;
+-
+-#include "ipq9554-jiorouter-ax6000-jidu6j11.dtsi"
+-
+-/ {
+-	model = "JioRouter AX6000 JIDU6J11-6111";
+-	compatible = "jiorouter,ax6000-jidu6j11-6111", "jiorouter,ax6000-jidu6j11", "qcom,ipq9574";
+-};
+-
+-&wifi0 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6111";
+-};
+-
+-&wifi1 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6111";
+-};
+diff --git a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6411.dts b/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6411.dts
+deleted file mode 100644
+index 24e7b08dd4..0000000000
+--- a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6411.dts
++++ /dev/null
+@@ -1,18 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+-
+-/dts-v1/;
+-
+-#include "ipq9554-jiorouter-ax6000-jidu6j11.dtsi"
+-
+-/ {
+-	model = "JioRouter AX6000 JIDU6J11-6411";
+-	compatible = "jiorouter,ax6000-jidu6j11-6411", "jiorouter,ax6000-jidu6j11", "qcom,ipq9574";
+-};
+-
+-&wifi0 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6411";
+-};
+-
+-&wifi1 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6411";
+-};
+diff --git a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6611.dts b/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6611.dts
+deleted file mode 100644
+index 12c4df262f..0000000000
+--- a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6611.dts
++++ /dev/null
+@@ -1,18 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+-
+-/dts-v1/;
+-
+-#include "ipq9554-jiorouter-ax6000-jidu6j11.dtsi"
+-
+-/ {
+-	model = "JioRouter AX6000 JIDU6J11-6611";
+-	compatible = "jiorouter,ax6000-jidu6j11-6611", "jiorouter,ax6000-jidu6j11", "qcom,ipq9574";
+-};
+-
+-&wifi0 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6611";
+-};
+-
+-&wifi1 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6611";
+-};
+diff --git a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6811.dts b/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6811.dts
+deleted file mode 100644
+index aba6fed78a..0000000000
+--- a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6811.dts
++++ /dev/null
+@@ -1,18 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+-
+-/dts-v1/;
+-
+-#include "ipq9554-jiorouter-ax6000-jidu6j11.dtsi"
+-
+-/ {
+-	model = "JioRouter AX6000 JIDU6J11-6811";
+-	compatible = "jiorouter,ax6000-jidu6j11-6811", "jiorouter,ax6000-jidu6j11", "qcom,ipq9574";
+-};
+-
+-&wifi0 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6811";
+-};
+-
+-&wifi1 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6811";
+-};
+diff --git a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6911.dts b/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6911.dts
+deleted file mode 100644
+index 1726e63c47..0000000000
+--- a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11-6911.dts
++++ /dev/null
+@@ -1,18 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+-
+-/dts-v1/;
+-
+-#include "ipq9554-jiorouter-ax6000-jidu6j11.dtsi"
+-
+-/ {
+-	model = "JioRouter AX6000 JIDU6J11-6911";
+-	compatible = "jiorouter,ax6000-jidu6j11-6911", "jiorouter,ax6000-jidu6j11", "qcom,ipq9574";
+-};
+-
+-&wifi0 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6911";
+-};
+-
+-&wifi1 {
+-	qcom,ath11k-calibration-variant = "JIDU6J11-6911";
+-};
+diff --git a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11.dts b/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11.dts
+index b837cf2859..9e70b2d391 100644
+--- a/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11.dts
++++ b/target/linux/qualcommbe/dts/ipq9554-jiorouter-ax6000-jidu6j11.dts
+@@ -7,9 +7,16 @@
+ / {
+ 	model = "JioRouter AX6000 (JIDU6J11 Series)";
+ 	compatible = "jiorouter,ax6000-jidu6j11",
++		     "jiorouter,ax6000-jidu6111",
++		     "jiorouter,ax6000-jidu6411",
++		     "jiorouter,ax6000-jidu6611",
++		     "jiorouter,ax6000-jidu6711",
++		     "jiorouter,ax6000-jidu6811",
++		     "jiorouter,ax6000-jidu6911",
+ 		     "jiorouter,ax6000-jidu6j11-6111",
+ 		     "jiorouter,ax6000-jidu6j11-6411",
+ 		     "jiorouter,ax6000-jidu6j11-6611",
++		     "jiorouter,ax6000-jidu6j11-6711",
+ 		     "jiorouter,ax6000-jidu6j11-6811",
+ 		     "jiorouter,ax6000-jidu6j11-6911",
+ 		     "qcom,ipq9574";
+diff --git a/target/linux/qualcommbe/image/ipq95xx.mk b/target/linux/qualcommbe/image/ipq95xx.mk
+index a84afde678..409799dca1 100644
+--- a/target/linux/qualcommbe/image/ipq95xx.mk
++++ b/target/linux/qualcommbe/image/ipq95xx.mk
+@@ -76,10 +76,40 @@ define Device/jiorouter_ax6000-jidu6j11
+ 	DEVICE_ALT2_VARIANT := JIDU6611
+ 	DEVICE_ALT3_VENDOR := JioRouter
+ 	DEVICE_ALT3_MODEL := AX6000
+-	DEVICE_ALT3_VARIANT := JIDU6811
++	DEVICE_ALT3_VARIANT := JIDU6711
+ 	DEVICE_ALT4_VENDOR := JioRouter
+ 	DEVICE_ALT4_MODEL := AX6000
+-	DEVICE_ALT4_VARIANT := JIDU6911
++	DEVICE_ALT4_VARIANT := JIDU6811
++	DEVICE_ALT5_VENDOR := JioRouter
++	DEVICE_ALT5_MODEL := AX6000
++	DEVICE_ALT5_VARIANT := JIDU6911
++	SUPPORTED_DEVICES := \
++		jiorouter,ax6000-jidu6j11 \
++		jiorouter,ax6000-jidu6111 \
++		jiorouter,ax6000-jidu6411 \
++		jiorouter,ax6000-jidu6611 \
++		jiorouter,ax6000-jidu6711 \
++		jiorouter,ax6000-jidu6811 \
++		jiorouter,ax6000-jidu6911 \
++		jiorouter,ax6000-jidu6j11-6111 \
++		jiorouter,ax6000-jidu6j11-6411 \
++		jiorouter,ax6000-jidu6j11-6611 \
++		jiorouter,ax6000-jidu6j11-6711 \
++		jiorouter,ax6000-jidu6j11-6811 \
++		jiorouter,ax6000-jidu6j11-6911
++	SYSUPGRADE_BOARD_ALIASES := \
++		jiorouter_ax6000-jidu6111 \
++		jiorouter_ax6000-jidu6411 \
++		jiorouter_ax6000-jidu6611 \
++		jiorouter_ax6000-jidu6711 \
++		jiorouter_ax6000-jidu6811 \
++		jiorouter_ax6000-jidu6911 \
++		jiorouter_ax6000-jidu6j11-6111 \
++		jiorouter_ax6000-jidu6j11-6411 \
++		jiorouter_ax6000-jidu6j11-6611 \
++		jiorouter_ax6000-jidu6j11-6711 \
++		jiorouter_ax6000-jidu6j11-6811 \
++		jiorouter_ax6000-jidu6j11-6911
+ 	SOC := ipq9554
+ 	BLOCKSIZE := 128k
+ 	PAGESIZE := 2048
+diff --git a/target/linux/qualcommbe/ipq95xx/base-files/etc/board.d/02_network b/target/linux/qualcommbe/ipq95xx/base-files/etc/board.d/02_network
+index fca8549f48..5a783bd97e 100644
+--- a/target/linux/qualcommbe/ipq95xx/base-files/etc/board.d/02_network
++++ b/target/linux/qualcommbe/ipq95xx/base-files/etc/board.d/02_network
+@@ -23,11 +23,14 @@ ipq95xx_setup_interfaces()
+ 	qcom,ipq9574-ap-al02-c7)
+ 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4 lan5" "wan"
+ 		;;
+-	jiorouter,ax6000-jidu6j11-6111|\
+-	jiorouter,ax6000-jidu6j11-6411|\
+-	jiorouter,ax6000-jidu6j11-6611|\
+-	jiorouter,ax6000-jidu6j11-6811|\
+-	jiorouter,ax6000-jidu6j11-6911)
++	jiorouter,ax6000-jidu6j11|\
++	jiorouter,ax6000-jidu6111|\
++	jiorouter,ax6000-jidu6411|\
++	jiorouter,ax6000-jidu6611|\
++	jiorouter,ax6000-jidu6711|\
++	jiorouter,ax6000-jidu6811|\
++	jiorouter,ax6000-jidu6911|\
++	jiorouter,ax6000-jidu6j11-*)
+ 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" "wan"
+ 		;;
+ 	*)
+diff --git a/target/linux/qualcommbe/ipq95xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata b/target/linux/qualcommbe/ipq95xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
+index dbc333f08c..148d56db0b 100644
+--- a/target/linux/qualcommbe/ipq95xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
++++ b/target/linux/qualcommbe/ipq95xx/base-files/etc/hotplug.d/firmware/11-ath11k-caldata
+@@ -9,22 +9,28 @@ board=$(board_name)
+ case "$FIRMWARE" in
+ "ath11k/IPQ9574/hw1.0/cal-ahb-c000000.wifi.bin")
+ 	case "$board" in
+-	jiorouter,ax6000-jidu6j11-6111|\
+-	jiorouter,ax6000-jidu6j11-6411|\
+-	jiorouter,ax6000-jidu6j11-6611|\
+-	jiorouter,ax6000-jidu6j11-6811|\
+-	jiorouter,ax6000-jidu6j11-6911)
++	jiorouter,ax6000-jidu6j11|\
++	jiorouter,ax6000-jidu6111|\
++	jiorouter,ax6000-jidu6411|\
++	jiorouter,ax6000-jidu6611|\
++	jiorouter,ax6000-jidu6711|\
++	jiorouter,ax6000-jidu6811|\
++	jiorouter,ax6000-jidu6911|\
++	jiorouter,ax6000-jidu6j11-*)
+ 		caldata_extract "0:ART" 0x1000 0x20000
+ 		;;
+ 	esac
+ 	;;
+ "ath11k/QCN9074/hw1.0/cal-pci-0001:01:00.0.bin")
+ 	case "$board" in
+-	jiorouter,ax6000-jidu6j11-6111|\
+-	jiorouter,ax6000-jidu6j11-6411|\
+-	jiorouter,ax6000-jidu6j11-6611|\
+-	jiorouter,ax6000-jidu6j11-6811|\
+-	jiorouter,ax6000-jidu6j11-6911)
++	jiorouter,ax6000-jidu6j11|\
++	jiorouter,ax6000-jidu6111|\
++	jiorouter,ax6000-jidu6411|\
++	jiorouter,ax6000-jidu6611|\
++	jiorouter,ax6000-jidu6711|\
++	jiorouter,ax6000-jidu6811|\
++	jiorouter,ax6000-jidu6911|\
++	jiorouter,ax6000-jidu6j11-*)
+ 		caldata_extract "0:ART" 0x4c000 0x20000
+ 		;;
+ 	esac
+diff --git a/target/linux/qualcommbe/ipq95xx/base-files/lib/upgrade/platform.sh b/target/linux/qualcommbe/ipq95xx/base-files/lib/upgrade/platform.sh
+index c35695345a..657f96b8ba 100644
+--- a/target/linux/qualcommbe/ipq95xx/base-files/lib/upgrade/platform.sh
++++ b/target/linux/qualcommbe/ipq95xx/base-files/lib/upgrade/platform.sh
+@@ -33,11 +33,23 @@ platform_check_image() {
+ 		}
+ 		return 0
+ 		;;
+-	jiorouter,ax6000-jidu6j11-6111|\
+-	jiorouter,ax6000-jidu6j11-6411|\
+-	jiorouter,ax6000-jidu6j11-6611|\
+-	jiorouter,ax6000-jidu6j11-6811|\
+-	jiorouter,ax6000-jidu6j11-6911)
++	jiorouter,ax6000-jidu6j11|\
++	jiorouter,ax6000-jidu6111|\
++	jiorouter,ax6000-jidu6411|\
++	jiorouter,ax6000-jidu6611|\
++	jiorouter,ax6000-jidu6711|\
++	jiorouter,ax6000-jidu6811|\
++	jiorouter,ax6000-jidu6911|\
++	jiorouter,ax6000-jidu6j11-*)
++		if nand_do_platform_check "$board" "$1" 2>/dev/null; then
++			return 0
++		fi
++		local cmd="$(identify_if_gzip "$1")cat"
++		local alias_ctrl="$($cmd < "$1" 2>/dev/null | tar tf - 2>/dev/null | grep -m 1 '^sysupgrade-jiorouter_ax6000-jidu6.*11/CONTROL$')"
++		if [ -n "$alias_ctrl" ]; then
++			nand_verify_tar_file "$1" "$cmd"
++			return $?
++		fi
+ 		nand_do_platform_check "$board" "$1"
+ 		return $?
+ 		;;
+@@ -49,11 +61,14 @@ platform_check_image() {
+ 
+ platform_do_upgrade() {
+ 	case "$(board_name)" in
+-	jiorouter,ax6000-jidu6j11-6111|\
+-	jiorouter,ax6000-jidu6j11-6411|\
+-	jiorouter,ax6000-jidu6j11-6611|\
+-	jiorouter,ax6000-jidu6j11-6811|\
+-	jiorouter,ax6000-jidu6j11-6911)
++	jiorouter,ax6000-jidu6j11|\
++	jiorouter,ax6000-jidu6111|\
++	jiorouter,ax6000-jidu6411|\
++	jiorouter,ax6000-jidu6611|\
++	jiorouter,ax6000-jidu6711|\
++	jiorouter,ax6000-jidu6811|\
++	jiorouter,ax6000-jidu6911|\
++	jiorouter,ax6000-jidu6j11-*)
+ 		jiorouter_initial_setup || return 1
+ 		CI_UBIPART="ubi"
+ 		nand_do_upgrade "$1"
 -- 
 2.17.1
 
